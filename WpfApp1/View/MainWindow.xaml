@@ -1,0 +1,35 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+
+
+    <Window.Resources>
+        <XmlDataProvider x:Key="XmlData" Source="/config.xml" XPath="/settings"/>
+    </Window.Resources>
+    <Grid Margin="0,7,0,-7">
+        <TextBlock Text="File Type" FontSize="16" Margin="0 0 180 200" Width="65" Height="20"/>
+        <ComboBox Name="cbx_fileType" Width="200" Height="20" Margin="100 0 0 200" 
+                  ItemsSource="{Binding Path=Files}"
+                  DisplayMemberPath="Type"
+                  SelectedValuePath="Type"
+                  SelectedValue="{Binding Path=FileType}"/>
+
+        <TextBlock Text="Source Path" Width="85" Height="20" FontSize="16" Margin="0 0 200 100"/>
+        <TextBox Name="tbx_source" Width="200" Height="20" Margin="100 0 0 100" PreviewMouseLeftButtonDown="getPath_PreviewMouseLeftButtonDown"></TextBox>
+
+        <TextBlock Text="Destination Path" Width="80" Height="20" FontSize="16" Margin="0 0 200 0"/>
+        <TextBox Name="tbx_destination" Width="200" Height="20" Margin="100 0 0 0" PreviewMouseLeftButtonDown="getPath_PreviewMouseLeftButtonDown"/>
+
+        <TextBlock Text="Time" Width="40" Height="20" FontSize="16" Margin="0 100 150 0"/>
+        <ComboBox Name="cbx_time" Width="200" Height="20" Margin="100 100 0 0" DropDownClosed="Cbx_time_DropDownClosed"
+                  ItemsSource="{Binding Source={StaticResource XmlData}, XPath=./duration}" DisplayMemberPath="@name"/>
+
+        <TextBlock Name="lb_time" Text="Time" Width="200" Height="20" FontSize="16" TextAlignment="Center" Margin="100 200 0 0"/>
+
+    </Grid>
+</Window>

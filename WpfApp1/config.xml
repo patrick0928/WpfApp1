@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <files>
+    <type>.txt</type>
+  </files>
+  <files>
+    <type>.doc</type>
+  </files>
+  <files>
+    <type>.ppt</type>
+  </files>
+ <files>
+    <type>.xls</type>
+  </files>
+   <files>
+    <type>.xml</type>
+  </files>
+
+
+  <duration name="1 hr"></duration>
+  <duration name="2 hr"></duration>
+  <duration name="3 hr"></duration>
+  <duration name="4 hr"></duration>
+  <duration name="5 hr"></duration>
+  <duration name="6 hr"></duration>
+</settings>
+
+
